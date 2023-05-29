@@ -1,5 +1,13 @@
 {
   "dependencies": {
+    "com.manakhovn.figma_to_unity_importer": {
+      "version": "file:E:/git_projects/FigmaToUnityImporter-main/Assets/FigmaImporter",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.textmeshpro": "2.1.4"
+      }
+    },
     "com.unity.2d.animation": {
       "version": "7.0.9",
       "depth": 1,

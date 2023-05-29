@@ -1,0 +1,55 @@
+.ButtonStart02 {
+    background-image: resource('UiSprites/button_start_70_17');
+    -unity-background-scale-mode: scale-to-fit;
+    width: 236px;
+    height: 245px;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    right: 10%;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+.ButtonStart02:active {
+    scale: 0.9 0.9;
+    transition-duration: 0.1s;
+    transition-delay: 0.1s;
+}
+
+.ButtonStart01 {
+    background-image: resource('UiSprites/button_start_2_391');
+    bottom: 20%;
+    position: absolute;
+    width: 11.5%;
+    height: 20%;
+    background-color: rgba(0, 0, 0, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+.ButtonStart01:active {
+    scale: 0.9 0.9;
+    transition-duration: 0.2s;
+}
+
+.ButtonBack {
+    background-image: resource('UiSprites/Group 8_73_232');
+    width: 266px;
+    height: 134px;
+    background-color: rgba(88, 88, 88, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    left: 2%;
+    top: 3%;
+}
+
+.ButtonBack:active {
+    scale: 0.9 0.9;
+    transition-duration: 0.1s;
+}

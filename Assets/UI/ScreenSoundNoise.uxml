@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/StyleSheet.uss?fileID=7433441132597879392&amp;guid=e965fee8837801141970d0b785724df3&amp;type=3#StyleSheet" />
+    <ui:VisualElement name="SNScreen" style="width: 100%; height: 100%; opacity: 1; background-color: rgb(255, 253, 251); position: absolute; align-items: flex-start; justify-content: space-between; background-image: resource(&apos;UiSprites/#2. 소리와 소음_2_11&apos;); -unity-text-align: middle-center; flex-direction: row;">
+        <ui:Button display-tooltip-when-elided="true" name="BackButton" class="ButtonBack" />
+        <ui:Button display-tooltip-when-elided="true" name="DirectButton" class="ButtonBack" style="width: 173px; height: 179.6px; background-image: resource(&apos;UiSprites/button_noise_73_224&apos;); left: auto; top: 2%; right: 15%; position: absolute;" />
+        <ui:Button display-tooltip-when-elided="true" name="AirButton" class="ButtonBack" style="width: 173px; height: 179.6px; background-image: resource(&apos;UiSprites/button_noise_73_228&apos;); top: 2%; left: auto; position: absolute; right: 3%;" />
+        <ui:Button display-tooltip-when-elided="true" name="NextButton" class="ButtonBack" style="position: absolute; left: auto; top: auto; right: 3%; bottom: 4%; background-image: resource(&apos;UiSprites/button_next_90_546&apos;);" />
+    </ui:VisualElement>
+</ui:UXML>

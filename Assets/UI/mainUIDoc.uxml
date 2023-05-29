@@ -1,4 +1,11 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="Start_2" src="project://database/Assets/UI/Start_2.uxml?fileID=9197481963319205126&amp;guid=597109f53fdb4a94281dac43e63fa48d&amp;type=3#Start_2" />
     <ui:Template name="Start" src="project://database/Assets/UI/Start.uxml?fileID=9197481963319205126&amp;guid=81c1c49d90744ed46a5300e3590ca218&amp;type=3#Start" />
-    <ui:Instance template="Start" name="Start" style="width: 100%; height: 100%; position: absolute;" />
+    <ui:Template name="Two" src="project://database/Assets/UI/Two.uxml?fileID=9197481963319205126&amp;guid=eb76e4c21ee4bb64fa2f3e022fac3f3a&amp;type=3#Two" />
+    <Style src="project://database/Assets/UI/StyleSheet.uss?fileID=7433441132597879392&amp;guid=e965fee8837801141970d0b785724df3&amp;type=3#StyleSheet" />
+    <ui:VisualElement name="StartScreen" style="width: 100%; height: 100%; position: absolute;">
+        <ui:Instance template="Start_2" name="Start_2" style="position: absolute; width: 100%; height: 100%; display: none;" />
+        <ui:Instance template="Start" name="Start" style="width: 100%; height: 100%; position: absolute; -unity-background-scale-mode: stretch-to-fill; display: flex;" />
+    </ui:VisualElement>
+    <ui:Instance template="Two" name="TwoMenuScreen" style="position: absolute; width: 100%; height: 100%; display: none;" />
 </ui:UXML>
