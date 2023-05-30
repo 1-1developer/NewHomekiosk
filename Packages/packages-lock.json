@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.manakhovn.figma_to_unity_importer": {
-      "version": "file:E:/git_projects/FigmaToUnityImporter-main/Assets/FigmaImporter",
+      "version": "file:D:/art works/unity/FigmaToUnityImporter-main/Assets/FigmaImporter",
       "depth": 0,
       "source": "local",
       "dependencies": {

@@ -53,3 +53,101 @@
     scale: 0.9 0.9;
     transition-duration: 0.1s;
 }
+
+.Screenfade {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-color: rgb(255, 253, 251);
+    position: absolute;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-image: resource('UiSprites/#2. 소리와 소음-데시벨_83_393');
+    -unity-text-align: middle-center;
+    flex-direction: row;
+    display: flex;
+    transition-duration: 0.5s;
+}
+
+.Screenfade--on {
+    opacity: 0;
+    transition-duration: 0.5s;
+}
+
+.ButtonPlay {
+    background-image: resource('UiSprites/button_play_70_70');
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    width: 245px;
+    height: 245px;
+    background-color: rgba(0, 0, 0, 0);
+    bottom: -25%;
+}
+
+.ButtonPlay:active {
+    scale: 0.9 0.9;
+}
+
+.ButtonPlay--pause {
+    background-image: resource('UiSprites/button_pause_70_69');
+    transition-duration: 0.1s;
+}
+
+.playing {
+    position: absolute;
+    background-image: resource('UiSprites/Group 27_156_2');
+    width: 873.09px;
+    height: 490.94px;
+    left: 523px;
+    top: 57px;
+    opacity: 1;
+    transition-duration: 0.2s;
+}
+
+.playing--pause {
+    opacity: 0;
+    transition-duration: 0.2s;
+}
+
+.NoiseGroup {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    flex-direction: row;
+    display: flex;
+    opacity: 1;
+    transition-duration: 0.1s;
+}
+
+.NoiseGroup--out {
+    opacity: 0;
+    transition-duration: 0.1s;
+}
+
+.ButtonAir {
+    width: 173px;
+    height: 179.6px;
+    background-image: resource('UiSprites/button_noise_73_228');
+    top: 5%;
+    left: auto;
+    position: absolute;
+    right: 3%;
+}
+
+.ButtonAir--hold {
+    right: 15%;
+}

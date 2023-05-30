@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/UI/StyleSheet.uss?fileID=7433441132597879392&amp;guid=e965fee8837801141970d0b785724df3&amp;type=3#StyleSheet" />
     <ui:VisualElement name="StartScreen2" style="width: 100%; height: 100%; opacity: 1; background-color: rgb(255, 253, 251); position: absolute; align-items: center; justify-content: center;">
         <ui:VisualElement style="background-image: resource(&apos;UiSprites/Group 3_83_300&apos;); width: 492.01px; height: 474px; position: absolute; top: 25%;" />
-        <ui:VisualElement style="background-image: resource(&apos;UiSprites/앞으로의 체험을 위해 키오스크 근처에 있는 헤드폰을 착용해주세요. 착용이 완료되셨으면 시작하기 버튼을 터치해주세요._2_384&apos;); width: 1053px; height: 112px; position: absolute; bottom: 15%; -unity-background-scale-mode: scale-to-fit;" />
+        <ui:VisualElement name="text01" style="background-image: resource(&apos;UiSprites/앞으로의 체험을 위해 키오스크 근처에 있는 헤드폰을 착용해주세요. 착용이 완료되셨으면 시작하기 버튼을 터치해주세요._2_384&apos;); width: 1053px; height: 90px; position: absolute; bottom: 70px; -unity-background-scale-mode: scale-and-crop; opacity: 1;" />
         <ui:Button display-tooltip-when-elided="true" name="StartButton02" class="ButtonStart02" />
     </ui:VisualElement>
 </ui:UXML>

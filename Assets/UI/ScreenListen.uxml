@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/StyleSheet.uss?fileID=7433441132597879392&amp;guid=e965fee8837801141970d0b785724df3&amp;type=3#StyleSheet" />
+    <ui:VisualElement name="ListenScreen" style="width: 100%; height: 100%; opacity: 1; background-color: rgb(255, 253, 251); position: absolute; align-items: center; justify-content: space-between; background-image: resource(&apos;UiSprites/소음 들어보기(일시정지)_105_724&apos;); -unity-text-align: middle-center; flex-direction: row; top: -4px; left: 0;">
+        <ui:Button display-tooltip-when-elided="true" name="BackButtonBig" style="background-image: resource(&apos;UiSprites/button_big_back_70_67&apos;); height: 970px; width: 329px; background-color: rgba(0, 0, 0, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; left: 3%;" />
+        <ui:Button display-tooltip-when-elided="true" name="PlayButton" class="ButtonPlay ButtonPlay--pause" />
+        <ui:Button display-tooltip-when-elided="true" name="NextButtonBig" style="background-image: resource(&apos;UiSprites/button_big_detail_70_68&apos;); height: 970px; width: 329px; background-color: rgba(0, 0, 0, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; left: auto; right: 3%;" />
+        <ui:VisualElement name="playing" class="playing" />
+        <ui:VisualElement name="headphone" style="position: absolute; width: 492.01px; height: 474px; background-image: resource(&apos;UiSprites/Group 3_83_300&apos;); left: 714px; top: 172px; align-items: center; justify-content: center;" />
+    </ui:VisualElement>
+</ui:UXML>

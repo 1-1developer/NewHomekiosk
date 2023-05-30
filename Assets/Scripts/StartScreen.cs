@@ -19,6 +19,9 @@ public class StartScreen : MenuScreen
 
     Button m_StartButton;
     Button m_StartButton02;
+
+    [SerializeField]
+    InitTimer initTimer;
     protected override void SetVisualElements()
     {
         base.SetVisualElements();
@@ -39,11 +42,15 @@ public class StartScreen : MenuScreen
         AudioManager.PlayDefaultButtonSound();
         StartScreen01.style.display = DisplayStyle.None;
         StartScreen02.style.display = DisplayStyle.Flex;
+        initTimer.isStart = true;
+        initTimer.timer = 0;
     }
     private void ClickStartButton2(ClickEvent evt)
     {
         AudioManager.PlayDefaultButtonSound();
         m_MainMenuUIManager.ShowtwoScreen();
+        StartScreen01.style.display = DisplayStyle.Flex;
+        StartScreen02.style.display = DisplayStyle.None;
     }
     void Start()
     {

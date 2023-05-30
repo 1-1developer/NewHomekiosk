@@ -10,6 +10,12 @@ public class AudioManager : MonoBehaviour
     [Header("UI Sounds")]
     [Tooltip("General button click.")]
     [SerializeField] AudioClip m_DefaultButtonSound;
+
+    [Header("Source Sounds")]
+    [Tooltip("litsen button click.")]
+    [SerializeField] AudioClip[] m_NoiseButtonSounds;
+
+    static AudioSource local_audioSource;
     // Start is called before the first frame update
     public static void PlayDefaultButtonSound()
     {
@@ -40,4 +46,40 @@ public class AudioManager : MonoBehaviour
         Destroy(sfxInstance, clip.length);
     }
 
+    public static void Playloop(AudioClip clip,AudioManager a)
+    {
+        if (clip == null)
+            return;
+
+        local_audioSource = a.GetComponent<AudioSource>();
+        local_audioSource.clip = clip;
+        local_audioSource.Play();
+
+        // destroy after clip length
+    }
+    public static void PlayNoiseButtonSound(int index)
+    {
+        AudioManager audioManager = FindObjectOfType<AudioManager>();
+        if (audioManager == null)
+            return;
+
+        Playloop(audioManager.m_NoiseButtonSounds[index],audioManager);
+
+    }
+    public static void  PauseSound()
+    {
+        local_audioSource.Pause();
+    }
+    public static void StopSound()
+    {
+        if (!local_audioSource)
+        {
+            return;
+        }
+        local_audioSource.Stop();
+    }
+    public static void PlaySound()
+    {
+        local_audioSource.Play();
+    }
 }
