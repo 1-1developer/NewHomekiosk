@@ -156,9 +156,9 @@ MonoBehaviour:
   videos:
   - {fileID: 32900000, guid: d37883af4d603754e92401b93db15fc5, type: 3}
   - {fileID: 32900000, guid: 14e7bd212815fb749802b9991986529f, type: 3}
+  - {fileID: 32900000, guid: 12de212d2bb5b5642acd3b6d30ce5077, type: 3}
   - {fileID: 32900000, guid: 05989228807abdf4b896a66032b47e90, type: 3}
   - {fileID: 32900000, guid: 2cd057111669c90489478449034671b3, type: 3}
-  - {fileID: 32900000, guid: 12de212d2bb5b5642acd3b6d30ce5077, type: 3}
 --- !u!328 &68249868
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -190,8 +190,8 @@ VideoPlayer:
   m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 0
   m_SkipOnDrop: 1
-  m_Looping: 0
-  m_WaitForFirstFrame: 0
+  m_Looping: 1
+  m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
 --- !u!4 &68249869
@@ -286,7 +286,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 890105162}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &260069386
 MonoBehaviour:
@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 291818541}
   - component: {fileID: 291818542}
   m_Layer: 5
-  m_Name: ScreenVideoSelect
+  m_Name: ScreenPrevention
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -333,7 +333,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 890105162}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &291818542
 MonoBehaviour:
@@ -344,13 +344,71 @@ MonoBehaviour:
   m_GameObject: {fileID: 291818540}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bfcb2c6b0ae90340ab4f82b1f02ddea, type: 3}
+  m_Script: {fileID: 11500000, guid: ec0ffb8d5beceb4438535783d5c42d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ScreenName: ScreenVideoSelect
+  m_ScreenName: ScreenPrevention
   m_MainMenuUIManager: {fileID: 890105163}
   m_Document: {fileID: 890105161}
   videoManager: {fileID: 68249867}
+--- !u!1 &640625669
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 640625670}
+  - component: {fileID: 640625671}
+  m_Layer: 5
+  m_Name: ScreenTypeofNoise
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &640625670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640625669}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 890105162}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &640625671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640625669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3083738e6d250e548b6cec118c499bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ScreenName: ScreenTypeofNoise
+  m_MainMenuUIManager: {fileID: 890105163}
+  m_Document: {fileID: 890105161}
+  m_texts:
+  - {fileID: 2800000, guid: 136e930727c305141926b0bc7dce2bb7, type: 3}
+  - {fileID: 2800000, guid: fcd6bf4c3f6e28f488b3126618634f2b, type: 3}
+  - {fileID: 2800000, guid: 6fa2d41bbb4b26d45a06233fba9bf137, type: 3}
+  - {fileID: 2800000, guid: 355e33ff78d72af4c9c13a6656eb4ac0, type: 3}
+  - {fileID: 2800000, guid: 6a3f81515117c674f9c3baf926118c36, type: 3}
+  - {fileID: 2800000, guid: 213909037a3756044a87325601b385d9, type: 3}
+  - {fileID: 2800000, guid: 6551d0c06ea4eb140893a928c20d6042, type: 3}
+  - {fileID: 2800000, guid: 2363373472abebb4eb4fee0195bf4f14, type: 3}
+  - {fileID: 2800000, guid: 5f40271e46e88644ebdf19d4d4ed3c61, type: 3}
+  - {fileID: 2800000, guid: e709f6952c4cfc344ac4bc789ea45460, type: 3}
 --- !u!1 &768670185
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,10 +449,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5d2266b5c8a341b478428c823df5dce1, type: 3}
   - {fileID: 8300000, guid: 88f0ff8fbd7dd884e8a0fe1296632ca5, type: 3}
   - {fileID: 8300000, guid: ad69922d2164006419b5dd2db9a5649c, type: 3}
-  - {fileID: 8300000, guid: d163b3d9708052745a1da98c74e9dedd, type: 3}
-  - {fileID: 8300000, guid: 63b6a58a8b5e7334f8b12ff55db01a7b, type: 3}
   - {fileID: 8300000, guid: 060e3c332b8517444a382547b9394ca8, type: 3}
   - {fileID: 8300000, guid: aa8c67b3958769e41a39fa35bcc955d8, type: 3}
+  - {fileID: 8300000, guid: d163b3d9708052745a1da98c74e9dedd, type: 3}
+  - {fileID: 8300000, guid: 63b6a58a8b5e7334f8b12ff55db01a7b, type: 3}
+  - {fileID: 8300000, guid: 92a56044fc9abc84ead241d2885159fd, type: 3}
+  - {fileID: 8300000, guid: b148b67b9ef7fd24ebb482523be9d083, type: 3}
+  - {fileID: 8300000, guid: 49e91d3893112114da2e29451b6a5959, type: 3}
+  - {fileID: 8300000, guid: 6e24db0d22d45f747aa47a15f9367458, type: 3}
+  - {fileID: 8300000, guid: 0668a5c2eb2a5404591164c8b92ed1bf, type: 3}
+  - {fileID: 8300000, guid: c3367bf1b5f0557408d3e297891cd5d1, type: 3}
 --- !u!4 &768670187
 Transform:
   m_ObjectHideFlags: 0
@@ -639,8 +703,10 @@ Transform:
   - {fileID: 1731348790}
   - {fileID: 176838147}
   - {fileID: 1150698163}
+  - {fileID: 640625670}
   - {fileID: 260069385}
   - {fileID: 291818541}
+  - {fileID: 2022850660}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -659,8 +725,13 @@ MonoBehaviour:
   m_HomeModalScreen: {fileID: 1731348791}
   m_TwoModalScreen: {fileID: 176838148}
   m_ScreenSoundNoise: {fileID: 1150698164}
+  m_ScreenTypeofNoise: {fileID: 640625671}
+  m_ScreenPreventionNoise: {fileID: 291818542}
   m_ScreenListen: {fileID: 260069386}
-  m_ScreenVideoSelect: {fileID: 291818542}
+  m_TopButtons: {fileID: 2022850659}
+  currentPageIndex: 0
+  menuindex: 0
+  pre_menuindex: 0
 --- !u!1 &1148361055
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,6 +827,15 @@ MonoBehaviour:
   m_ScreenName: ScreenSoundNoise
   m_MainMenuUIManager: {fileID: 890105163}
   m_Document: {fileID: 890105161}
+  m_texts:
+  - {fileID: 2800000, guid: 499b319930e0fbd47b8aecf39bef7b68, type: 3}
+  - {fileID: 2800000, guid: 2aba1d236197ea64bb7069fb87e1841a, type: 3}
+  - {fileID: 2800000, guid: fb299ad5dc8508c4c96056aa5338b4da, type: 3}
+  - {fileID: 2800000, guid: 1580417d14dcb78469b3fe6cd8061920, type: 3}
+  - {fileID: 2800000, guid: 0f3b82a8263c966488104cf931031512, type: 3}
+  - {fileID: 2800000, guid: 0073d59a446e095479be3995096b5f16, type: 3}
+  - {fileID: 2800000, guid: 48ca1fa644863894984ef436efdc2376, type: 3}
+  - {fileID: 2800000, guid: a89d404dc5a0c09468cc3a13b71dfbe8, type: 3}
 --- !u!1 &1604976440
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,3 +952,50 @@ MonoBehaviour:
   m_MainMenuUIManager: {fileID: 890105163}
   m_Document: {fileID: 890105161}
   initTimer: {fileID: 1148361056}
+--- !u!1 &2022850658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2022850660}
+  - component: {fileID: 2022850659}
+  m_Layer: 5
+  m_Name: TopButtons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2022850659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022850658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a678ddb5c5f98548952d8afb48dd285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ScreenName: TopButtons
+  m_MainMenuUIManager: {fileID: 890105163}
+  m_Document: {fileID: 890105161}
+--- !u!4 &2022850660
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022850658}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 890105162}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -37,7 +37,6 @@
 }
 
 .ButtonBack {
-    background-image: resource('UiSprites/Group 8_73_232');
     width: 266px;
     height: 134px;
     background-color: rgba(88, 88, 88, 0);
@@ -150,4 +149,34 @@
 
 .ButtonAir--hold {
     right: 15%;
+}
+
+.Touch {
+    position: absolute;
+    height: 29px;
+    width: 123px;
+    top: 332px;
+    left: 1499px;
+    background-image: resource('UiSprites/part2/touch!_191_40026');
+    -unity-background-scale-mode: scale-to-fit;
+    transition-duration: 0.5s;
+}
+
+.Touch--up {
+    translate: 0 -17px;
+    transition-duration: 0.5s;
+}
+
+.playingText {
+    width: 631px;
+    position: absolute;
+    height: 40px;
+    background-image: resource('UiSprites/part2/text/Group 100_201_15911');
+    -unity-background-scale-mode: scale-to-fit;
+    top: 100px;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+.playingText--fade {
+    -unity-background-image-tint-color: rgba(0, 0, 0, 0.36);
 }

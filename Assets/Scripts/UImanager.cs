@@ -11,14 +11,20 @@ public class UImanager : MonoBehaviour
     [SerializeField] StartScreen m_HomeModalScreen;
     [SerializeField] TwoMenuScreen m_TwoModalScreen;
     [SerializeField] ScreenSoundNoise m_ScreenSoundNoise;
+    [SerializeField] ScreenTypeofNoise m_ScreenTypeofNoise;
+    [SerializeField] ScreenPrevention m_ScreenPreventionNoise;
     [SerializeField] ScreenListen m_ScreenListen;
-    [SerializeField] ScreenVideoSelect m_ScreenVideoSelect;
+    [SerializeField] TopButtons m_TopButtons;
 
     UIDocument m_MainMenuDocument;
     public UIDocument MainMenuDocument => m_MainMenuDocument;
 
     List<MenuScreen> m_AllModalScreens = new List<MenuScreen>();
 
+    public int currentPageIndex = 0; // typeofnoise 그룹의 페이지 인덱스
+
+    public int menuindex;
+    public int pre_menuindex;
     void SetupModalScreens()
     {
         if (m_HomeModalScreen != null)
@@ -29,11 +35,14 @@ public class UImanager : MonoBehaviour
             m_AllModalScreens.Add(m_ScreenSoundNoise);
         if (m_ScreenListen != null)
             m_AllModalScreens.Add(m_ScreenListen);
-        if (m_ScreenVideoSelect != null)
-            m_AllModalScreens.Add(m_ScreenVideoSelect);
+        if (m_ScreenTypeofNoise != null)
+            m_AllModalScreens.Add(m_ScreenTypeofNoise);
+        if (m_ScreenPreventionNoise != null)
+            m_AllModalScreens.Add(m_ScreenPreventionNoise);
     }
     void ShowModalScreen(MenuScreen modalScreen)
     {
+        resetIndex();
         foreach (MenuScreen m in m_AllModalScreens)
         {
             if (m == modalScreen)
@@ -46,11 +55,16 @@ public class UImanager : MonoBehaviour
             }
         }
     }
+    void resetIndex()
+    {
+        currentPageIndex = 0;
+    }
     void OnEnable()
     {
         m_MainMenuDocument = GetComponent<UIDocument>();
         SetupModalScreens();
         ShowHomeScreen();
+        HideTopbar();
     }
     public void ShowHomeScreen()
     {
@@ -62,14 +76,31 @@ public class UImanager : MonoBehaviour
     }
     public void ShowSoundNoiseScreen()
     {
+        menuindex = 1;
         ShowModalScreen(m_ScreenSoundNoise);
+    }
+    public void ShowTypeofNoiseScreen()
+    {
+        menuindex = 0;
+        ShowModalScreen(m_ScreenTypeofNoise);
+    }
+    public void ShowPreventionNoise()
+    {
+        menuindex = 2;
+        ShowModalScreen(m_ScreenPreventionNoise);
     }
     public void ShowListenScreen()
     {
+        pre_menuindex = menuindex;
+        menuindex = 3;
         ShowModalScreen(m_ScreenListen);
     }
-    public void ShowVideoScreen()
+    public void ShowTopbar()
     {
-        ShowModalScreen(m_ScreenVideoSelect);
+        m_TopButtons.ShowScreen();
+    }
+    public void HideTopbar()
+    {
+        m_TopButtons.HideScreen();
     }
 }

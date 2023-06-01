@@ -53,11 +53,9 @@ public class AudioManager : MonoBehaviour
 
         local_audioSource = a.GetComponent<AudioSource>();
         local_audioSource.clip = clip;
-        local_audioSource.Play();
-
         // destroy after clip length
     }
-    public static void PlayNoiseButtonSound(int index)
+    public static void SetNoiseButtonSound(int index)
     {
         AudioManager audioManager = FindObjectOfType<AudioManager>();
         if (audioManager == null)

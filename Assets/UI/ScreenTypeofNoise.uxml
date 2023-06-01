@@ -1,0 +1,40 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/StyleSheet.uss?fileID=7433441132597879392&amp;guid=e965fee8837801141970d0b785724df3&amp;type=3#StyleSheet" />
+    <ui:VisualElement name="NoiseScreen0" style="width: 100%; height: 100%; opacity: 1; background-color: rgb(255, 253, 251); position: absolute; align-items: flex-start; justify-content: space-between; background-image: resource(&apos;UiSprites/part2/Frame_201_15&apos;); -unity-text-align: middle-center; flex-direction: row; display: flex;">
+        <ui:GroupBox style="position: absolute; left: 81px; top: 512px; width: 746.26px; height: 295px; flex-direction: row; justify-content: space-between;">
+            <ui:Button display-tooltip-when-elided="true" name="fnoiseButton0" class="ButtonBack" style="background-image: resource(&apos;UiSprites/part2/Group 77&apos;); width: 224.26px; height: 295px; -unity-background-scale-mode: scale-to-fit;" />
+            <ui:Button display-tooltip-when-elided="true" name="fnoiseButton1" class="ButtonBack" style="background-image: resource(&apos;UiSprites/part2/Group 78&apos;); width: 224.26px; height: 295px; -unity-background-scale-mode: scale-to-fit;" />
+            <ui:Button display-tooltip-when-elided="true" name="fnoiseButton2" class="ButtonBack" style="background-image: resource(&apos;UiSprites/part2/Group 79&apos;); width: 224.26px; height: 295px; -unity-background-scale-mode: scale-to-fit;" />
+        </ui:GroupBox>
+        <ui:GroupBox style="position: absolute; left: 1091px; top: 512px; width: 746.26px; height: 295px; flex-direction: row; justify-content: space-between;">
+            <ui:Button display-tooltip-when-elided="true" name="fnoiseButton3" class="ButtonBack" style="background-image: resource(&apos;UiSprites/part2/Group 80&apos;); width: 224.26px; height: 295px; -unity-background-scale-mode: scale-to-fit;" />
+            <ui:Button display-tooltip-when-elided="true" name="fnoiseButton4" class="ButtonBack" style="background-image: resource(&apos;UiSprites/part2/Group 81&apos;); width: 224.26px; height: 295px; -unity-background-scale-mode: scale-to-fit;" />
+            <ui:Button display-tooltip-when-elided="true" name="fnoiseButton5" class="ButtonBack" style="background-image: resource(&apos;UiSprites/part2/Group 82&apos;); width: 224.26px; height: 295px; -unity-background-scale-mode: scale-to-fit;" />
+        </ui:GroupBox>
+        <ui:VisualElement style="height: 146px; width: 826px; position: absolute; background-image: resource(&apos;UiSprites/part2/Group 75&apos;); -unity-background-scale-mode: scale-to-fit; top: 242px; left: 52px;" />
+        <ui:GroupBox name="g_touch0" class="Touch" style="position: absolute; left: 151px; top: 468px; width: 638px; height: 33px; flex-direction: row; justify-content: space-between; background-image: none;">
+            <ui:VisualElement name="touch" class="Touch" style="position: relative; left: auto; top: auto;" />
+            <ui:VisualElement name="touch" class="Touch" style="position: relative; left: auto; top: auto;" />
+            <ui:VisualElement name="touch" class="Touch" style="position: relative; left: auto; top: auto;" />
+        </ui:GroupBox>
+        <ui:GroupBox name="g_touch1" class="Touch" style="position: absolute; left: auto; top: 468px; width: 638px; height: 33px; flex-direction: row; justify-content: space-between; right: 120px; background-image: none;">
+            <ui:VisualElement name="touch" class="Touch" style="position: relative; left: auto; top: auto;" />
+            <ui:VisualElement name="touch" class="Touch" style="position: relative; left: auto; top: auto;" />
+            <ui:VisualElement name="touch" class="Touch" style="position: relative; left: auto; top: auto;" />
+        </ui:GroupBox>
+    </ui:VisualElement>
+    <ui:VisualElement name="NoiseScreen1" style="width: 100%; height: 100%; opacity: 1; background-color: rgb(255, 253, 251); position: absolute; align-items: flex-start; justify-content: space-between; background-image: resource(&apos;UiSprites/part2/공기전달 소음 1&apos;); -unity-text-align: middle-center; flex-direction: row; display: none;">
+        <ui:Button display-tooltip-when-elided="true" name="noiseButton0" class="ButtonBack" style="height: 215.13px; width: 215.13px; position: absolute; top: 598px; left: 466.16px; background-image: resource(&apos;UiSprites/part2/bt_kids&apos;);" />
+        <ui:Button display-tooltip-when-elided="true" name="noiseButton1" class="ButtonBack" style="height: 215.13px; width: 215.13px; position: absolute; top: 598px; left: 693.26px; background-image: resource(&apos;UiSprites/part2/bt_hammer&apos;);" />
+        <ui:Button display-tooltip-when-elided="true" name="noiseButton2" class="ButtonBack" style="height: 215.13px; width: 215.13px; position: absolute; top: 598px; left: 1011.97px; background-image: resource(&apos;UiSprites/part2/bt_tv&apos;);" />
+        <ui:Button display-tooltip-when-elided="true" name="noiseButton3" class="ButtonBack" style="height: 215.13px; width: 215.13px; position: absolute; top: 598px; left: 1239.06px; background-image: resource(&apos;UiSprites/part2/bt_piano&apos;);" />
+        <ui:GroupBox name="g_touch2" class="Touch" style="position: absolute; left: auto; top: 530px; width: 357px; height: 33px; flex-direction: row; justify-content: space-between; right: 496px; background-image: none;">
+            <ui:VisualElement name="touch" class="Touch" style="position: relative; left: auto; top: auto;" />
+            <ui:VisualElement name="touch" class="Touch" style="position: relative; left: auto; top: auto;" />
+        </ui:GroupBox>
+        <ui:GroupBox name="g_touch3" class="Touch" style="position: absolute; left: 496px; top: 530px; width: 357px; height: 33px; flex-direction: row; justify-content: space-between; right: auto; background-image: none;">
+            <ui:VisualElement name="touch" class="Touch" style="position: relative; left: auto; top: auto;" />
+            <ui:VisualElement name="touch" class="Touch" style="position: relative; left: auto; top: auto;" />
+        </ui:GroupBox>
+    </ui:VisualElement>
+</ui:UXML>

@@ -4,14 +4,13 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System;
 
-public class ScreenVideoSelect : MenuScreen
+public class ScreenPrevention : MenuScreen
 {
-    const string ToStartButton = "ToStartButton";
+
     const string VideoButton = "VideoButton";
     const string VideoScreen = "VideoScreen";
     const string BackButtonV = "BackButtonV";
 
-    Button m_ToStartButton;
     Button m_BackButtonV;
     Button[] m_VideoButtons = new Button[5];
 
@@ -23,7 +22,6 @@ public class ScreenVideoSelect : MenuScreen
     protected override void SetVisualElements()
     {
         base.SetVisualElements();
-        m_ToStartButton = m_Root.Q<Button>(ToStartButton);
         m_videoScreen = m_Root.Q(VideoScreen);
         m_BackButtonV = m_Root.Q<Button>(BackButtonV);
         for (int i = 0; i < m_VideoButtons.Length; i++)
@@ -47,7 +45,6 @@ public class ScreenVideoSelect : MenuScreen
 
     protected override void RegisterButtonCallbacks()
     {
-        m_ToStartButton?.RegisterCallback<ClickEvent>(ClickToStartButton);
         m_BackButtonV?.RegisterCallback<ClickEvent>(ClickBackV);
         m_VideoButtons[0]?.RegisterCallback<ClickEvent>(evt => playVideo(0));
         m_VideoButtons[1]?.RegisterCallback<ClickEvent>(evt => playVideo(1));
@@ -56,27 +53,23 @@ public class ScreenVideoSelect : MenuScreen
         m_VideoButtons[4]?.RegisterCallback<ClickEvent>(evt => playVideo(4));
     }
 
-    private void ClickToStartButton(ClickEvent evt)
-    {
-        AudioManager.PlayDefaultButtonSound();
-        m_MainMenuUIManager.ShowHomeScreen();
-    }
     private void ClickBackV(ClickEvent evt)
     {
         AudioManager.PlayDefaultButtonSound();
         m_videoScreen.style.display = DisplayStyle.None;
         videoManager.StopVideo();
+        m_MainMenuUIManager.ShowTopbar();
     }
     private void playVideo(int index)
     {
         AudioManager.PlayDefaultButtonSound();
         videoManager.PrepareClip(index);
         videoManager.PlayVideo();
+        m_MainMenuUIManager.HideTopbar();
         Invoke("onVideo", .1f);
     }
     private void onVideo()
     {
         m_videoScreen.style.display = DisplayStyle.Flex;
-
     }
 }

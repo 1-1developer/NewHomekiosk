@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/StyleSheet.uss?fileID=7433441132597879392&amp;guid=e965fee8837801141970d0b785724df3&amp;type=3#StyleSheet" />
-    <ui:VisualElement name="startscreen01" style="width: 100%; height: 100%; opacity: 1; background-color: rgb(255, 250, 246); position: absolute; background-image: resource(&apos;UiSprites/start&apos;); -unity-background-scale-mode: scale-and-crop; align-items: center; justify-content: center;">
-        <ui:Button display-tooltip-when-elided="true" name="StartButton01" class="ButtonStart01" style="width: 236px; height: 245px;" />
+    <ui:VisualElement name="startscreen01" style="width: 100%; height: 100%; opacity: 1; background-color: rgb(255, 250, 246); position: absolute; background-image: resource(&apos;UiSprites/part2/시작(2안)_187_12233&apos;); -unity-background-scale-mode: scale-and-crop; align-items: center; justify-content: center;">
+        <ui:Button display-tooltip-when-elided="true" name="StartButton01" class="ButtonStart01" style="width: 236px; height: 245px; background-image: resource(&apos;UiSprites/part2/button_start_187_12239&apos;);" />
     </ui:VisualElement>
 </ui:UXML>

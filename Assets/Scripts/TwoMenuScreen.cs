@@ -7,72 +7,88 @@ using System;
 
 public class TwoMenuScreen : MenuScreen
 {
-    const string twoSc = "Two";
 
     const string Typebt = "TypeButton01";
     const string Typebt2 = "TypeButton02";
-
-    const string NoiseScreen = "NoiseScreen";
-
-    const string DirectButton = "DirectButton";
-    const string AirButton = "AirButton";
-    const string SNButton = "SNButton";
-
-    const string AirGroup = "AirGroup";
-    const string DirectGroup = "DirectGroup";
-
+    const string Typebt3 = "TypeButton03";
+    const string Touch = "Touch";
     // Start is called before the first frame update
-    VisualElement TwoSc;
-    VisualElement m_NoiseScreen;
 
     Button m_TypeButton;
     Button m_TypeButton02;
+    Button m_TypeButton03;
 
-    Button m_DirectButton;
-    Button m_AirButton;
-    Button m_SNButton;
-
-    VisualElement m_AirGroup;
-    VisualElement m_DirectGroup;
+    VisualElement m_touch;
+    List<VisualElement> m_Gtouch = new List<VisualElement>();
     protected override void SetVisualElements()
     {
         base.SetVisualElements();
-        TwoSc = m_Root.Q(twoSc);
-        m_NoiseScreen = m_Root.Q(NoiseScreen);
 
         m_TypeButton = m_Root.Q<Button>(Typebt);
         m_TypeButton02 = m_Root.Q<Button>(Typebt2);
+        m_TypeButton03 = m_Root.Q<Button>(Typebt3);
 
-        m_DirectButton = m_Root.Q<Button>(DirectButton);
-        m_AirButton = m_Root.Q<Button>(AirButton);
-        m_SNButton = m_Root.Q<Button>(SNButton);
 
-        m_AirGroup = m_Root.Q(AirGroup);
-        m_DirectGroup = m_Root.Q(DirectGroup);
+        for (int i = 0; i < 4; i++)
+        {
+            m_Gtouch.Add(m_Root.Q("g_touch" + $"{i}"));
+        }
+        m_touch = m_Root.Q(Touch);
     }
     protected override void RegisterButtonCallbacks()
     {
         m_TypeButton?.RegisterCallback<ClickEvent>(ClickTypeButton);
         m_TypeButton02?.RegisterCallback<ClickEvent>(ClickTypeButton2);
+        m_TypeButton03?.RegisterCallback<ClickEvent>(ClickTypeButton3);
     }
-
     private void ClickTypeButton(ClickEvent evt)
     {
+        AnimationTouch();
+        AnimationGTouch();
         AudioManager.PlayDefaultButtonSound();
-        m_MainMenuUIManager.ShowSoundNoiseScreen();
-        m_NoiseScreen.style.display = DisplayStyle.Flex;
-        m_SNButton.style.display = DisplayStyle.Flex;
-        m_AirGroup.style.display = DisplayStyle.None;
-        m_DirectGroup.style.display = DisplayStyle.Flex;
-        m_AirButton.style.display = DisplayStyle.Flex;
-        m_AirButton.AddToClassList("ButtonAir--hold");
-        m_DirectButton.style.display = DisplayStyle.None;
+        m_MainMenuUIManager.ShowTypeofNoiseScreen();
+        m_MainMenuUIManager.ShowTopbar();
     }
     private void ClickTypeButton2(ClickEvent evt)
     {
+        AnimationTouch();
+        AnimationGTouch();
         AudioManager.PlayDefaultButtonSound();
         m_MainMenuUIManager.ShowSoundNoiseScreen();
-        m_NoiseScreen.style.display = DisplayStyle.None;
-
+        m_MainMenuUIManager.ShowTopbar();
+    }
+    private void ClickTypeButton3(ClickEvent evt)
+    {
+        AnimationTouch();
+        AnimationGTouch();
+        AudioManager.PlayDefaultButtonSound();
+        m_MainMenuUIManager.ShowPreventionNoise();
+        m_MainMenuUIManager.ShowTopbar();
+    }
+    void AnimationTouch()
+    {
+        m_touch.ToggleInClassList("Touch--up");
+        m_touch.RegisterCallback<TransitionEndEvent>(
+            evt => m_touch.ToggleInClassList("Touch--up")
+            );
+    }
+    void AnimationGTouch()
+    {
+        m_Gtouch[0].ToggleInClassList("Touch--up");
+        m_Gtouch[0].RegisterCallback<TransitionEndEvent>(
+            evt => m_Gtouch[0].ToggleInClassList("Touch--up")
+            );
+        m_Gtouch[1].ToggleInClassList("Touch--up");
+        m_Gtouch[1].RegisterCallback<TransitionEndEvent>(
+            evt => m_Gtouch[1].ToggleInClassList("Touch--up")
+            );
+        m_Gtouch[2].ToggleInClassList("Touch--up");
+        m_Gtouch[2].RegisterCallback<TransitionEndEvent>(
+            evt => m_Gtouch[2].ToggleInClassList("Touch--up")
+            );
+        m_Gtouch[3].ToggleInClassList("Touch--up");
+        m_Gtouch[3].RegisterCallback<TransitionEndEvent>(
+            evt => m_Gtouch[3].ToggleInClassList("Touch--up")
+            );
     }
 }
