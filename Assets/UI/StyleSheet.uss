@@ -180,3 +180,19 @@
 .playingText--fade {
     -unity-background-image-tint-color: rgba(0, 0, 0, 0.36);
 }
+
+.arrow {
+    background-image: resource('UiSprites/part2/Group 115');
+    width: 265px;
+    height: 266px;
+    left: -30px;
+    top: -30px;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-in-out-sine;
+}
+
+.arrow--up {
+    translate: -12px -12px;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-in-out-sine;
+}

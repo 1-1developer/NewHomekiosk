@@ -12,12 +12,12 @@
             <ui:Button display-tooltip-when-elided="true" name="fnoiseButton5" class="ButtonBack" style="background-image: resource(&apos;UiSprites/part2/Group 82&apos;); width: 224.26px; height: 295px; -unity-background-scale-mode: scale-to-fit;" />
         </ui:GroupBox>
         <ui:VisualElement style="height: 146px; width: 826px; position: absolute; background-image: resource(&apos;UiSprites/part2/Group 75&apos;); -unity-background-scale-mode: scale-to-fit; top: 242px; left: 52px;" />
-        <ui:GroupBox name="g_touch0" class="Touch" style="position: absolute; left: 151px; top: 468px; width: 638px; height: 33px; flex-direction: row; justify-content: space-between; background-image: none;">
+        <ui:GroupBox name="g_touch0" class="Touch" style="position: absolute; left: 151px; top: 480px; width: 638px; height: 33px; flex-direction: row; justify-content: space-between; background-image: none;">
             <ui:VisualElement name="touch" class="Touch" style="position: relative; left: auto; top: auto;" />
             <ui:VisualElement name="touch" class="Touch" style="position: relative; left: auto; top: auto;" />
             <ui:VisualElement name="touch" class="Touch" style="position: relative; left: auto; top: auto;" />
         </ui:GroupBox>
-        <ui:GroupBox name="g_touch1" class="Touch" style="position: absolute; left: auto; top: 468px; width: 638px; height: 33px; flex-direction: row; justify-content: space-between; right: 120px; background-image: none;">
+        <ui:GroupBox name="g_touch1" class="Touch" style="position: absolute; left: auto; top: 480px; width: 638px; height: 33px; flex-direction: row; justify-content: space-between; right: 120px; background-image: none;">
             <ui:VisualElement name="touch" class="Touch" style="position: relative; left: auto; top: auto;" />
             <ui:VisualElement name="touch" class="Touch" style="position: relative; left: auto; top: auto;" />
             <ui:VisualElement name="touch" class="Touch" style="position: relative; left: auto; top: auto;" />

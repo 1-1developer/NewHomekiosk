@@ -32,6 +32,8 @@ public class TopButtons : MenuScreen
     List<VisualElement> m_Tscreens = new List<VisualElement>();
     List<VisualElement> m_Sscreens = new List<VisualElement>();
     List<VisualElement> m_Pscreens = new List<VisualElement>();
+
+    int tpageIndex;
     protected override void SetVisualElements()
     {
         base.SetVisualElements();
@@ -83,10 +85,10 @@ public class TopButtons : MenuScreen
             switch (m_MainMenuUIManager.pre_menuindex)
             {
                 case 0:
-                    ShowPage(m_Tscreens[1], m_Tscreens);
-                    setNextBt(1, 1);
+                    ShowPage(m_Tscreens[tpageIndex], m_Tscreens);
+                    setNextBt(tpageIndex, 1);
                     m_MainMenuUIManager.ShowTypeofNoiseScreen();
-                    m_MainMenuUIManager.currentPageIndex = 1;
+                    m_MainMenuUIManager.currentPageIndex = tpageIndex;
                     break;
                 case 1:
                     ShowPage(m_Sscreens[1], m_Sscreens);
@@ -183,6 +185,7 @@ public class TopButtons : MenuScreen
             case 0:
                 ShowPage( m_Tscreens[pageindex],m_Tscreens);
                 setNextBt(pageindex, 1);
+                tpageIndex = pageindex;
                 break;
             case 1:
                 ShowPage(m_Sscreens[pageindex], m_Sscreens);

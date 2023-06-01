@@ -59,8 +59,8 @@ public class ScreenListen : MenuScreen
         {
             m_PlayButton.RemoveFromClassList("ButtonPlay--pause");
             m_Playing.AddToClassList("playing--pause");
-            m_PlayingText.AddToClassList("palying--fade");
-            m_PlayingText2.AddToClassList("palying--fade");
+            m_PlayingText.AddToClassList("playingText--fade");
+            m_PlayingText2.AddToClassList("playingText--fade");
             AudioManager.PauseSound();
             isPlaying = false;
         }
@@ -68,8 +68,8 @@ public class ScreenListen : MenuScreen
         {
             m_PlayButton.AddToClassList("ButtonPlay--pause");
             m_Playing.RemoveFromClassList("playing--pause");
-            m_PlayingText.RemoveFromClassList("palying--fade");
-            m_PlayingText2.RemoveFromClassList("palying--fade");
+            m_PlayingText.RemoveFromClassList("playingText--fade");
+            m_PlayingText2.RemoveFromClassList("playingText--fade");
             AudioManager.PlaySound();
             isPlaying = true;
         }

@@ -12,11 +12,13 @@ public class TwoMenuScreen : MenuScreen
     const string Typebt2 = "TypeButton02";
     const string Typebt3 = "TypeButton03";
     const string Touch = "Touch";
+    const string arrow = "arrow";
     // Start is called before the first frame update
 
     Button m_TypeButton;
     Button m_TypeButton02;
     Button m_TypeButton03;
+    VisualElement m_arrow;
 
     VisualElement m_touch;
     List<VisualElement> m_Gtouch = new List<VisualElement>();
@@ -27,7 +29,7 @@ public class TwoMenuScreen : MenuScreen
         m_TypeButton = m_Root.Q<Button>(Typebt);
         m_TypeButton02 = m_Root.Q<Button>(Typebt2);
         m_TypeButton03 = m_Root.Q<Button>(Typebt3);
-
+        m_arrow = m_Root.Q(arrow);
 
         for (int i = 0; i < 4; i++)
         {
@@ -43,24 +45,21 @@ public class TwoMenuScreen : MenuScreen
     }
     private void ClickTypeButton(ClickEvent evt)
     {
-        AnimationTouch();
-        AnimationGTouch();
+        AnimationStart();
         AudioManager.PlayDefaultButtonSound();
         m_MainMenuUIManager.ShowTypeofNoiseScreen();
         m_MainMenuUIManager.ShowTopbar();
     }
     private void ClickTypeButton2(ClickEvent evt)
     {
-        AnimationTouch();
-        AnimationGTouch();
+        AnimationStart();
         AudioManager.PlayDefaultButtonSound();
         m_MainMenuUIManager.ShowSoundNoiseScreen();
         m_MainMenuUIManager.ShowTopbar();
     }
     private void ClickTypeButton3(ClickEvent evt)
     {
-        AnimationTouch();
-        AnimationGTouch();
+        AnimationStart();
         AudioManager.PlayDefaultButtonSound();
         m_MainMenuUIManager.ShowPreventionNoise();
         m_MainMenuUIManager.ShowTopbar();
@@ -70,6 +69,13 @@ public class TwoMenuScreen : MenuScreen
         m_touch.ToggleInClassList("Touch--up");
         m_touch.RegisterCallback<TransitionEndEvent>(
             evt => m_touch.ToggleInClassList("Touch--up")
+            );
+    }
+    void AnimationArrow()
+    {
+        m_arrow.ToggleInClassList("arrow--up");
+        m_arrow.RegisterCallback<TransitionEndEvent>(
+            evt => m_arrow.ToggleInClassList("arrow--up")
             );
     }
     void AnimationGTouch()
@@ -90,5 +96,11 @@ public class TwoMenuScreen : MenuScreen
         m_Gtouch[3].RegisterCallback<TransitionEndEvent>(
             evt => m_Gtouch[3].ToggleInClassList("Touch--up")
             );
+    }
+    void AnimationStart()
+    {
+        AnimationTouch();
+        AnimationGTouch();
+        AnimationArrow();
     }
 }
