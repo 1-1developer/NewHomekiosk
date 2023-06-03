@@ -441,14 +441,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DefaultButtonSound: {fileID: 8300000, guid: 98730407fbbef09459527bd1b3fe80f2, type: 3}
   m_NoiseButtonSounds:
-  - {fileID: 8300000, guid: 863f474f883c0b9419efad628f6b1af4, type: 3}
-  - {fileID: 8300000, guid: e54352c096420b645b7449301cc4b707, type: 3}
+  - {fileID: 8300000, guid: a4618c81ea640d74eb392ed3e2aac4f3, type: 3}
+  - {fileID: 8300000, guid: e1e5bc949cc4fd249b7176e8cd215742, type: 3}
   - {fileID: 8300000, guid: 0122827b18ebd8749865757c8ce130af, type: 3}
   - {fileID: 8300000, guid: c9ab8496277c802429f5be6754a34258, type: 3}
   - {fileID: 8300000, guid: f4fd757889ddb3542b932cda789dc1ea, type: 3}
   - {fileID: 8300000, guid: 5d2266b5c8a341b478428c823df5dce1, type: 3}
   - {fileID: 8300000, guid: 88f0ff8fbd7dd884e8a0fe1296632ca5, type: 3}
-  - {fileID: 8300000, guid: ad69922d2164006419b5dd2db9a5649c, type: 3}
+  - {fileID: 8300000, guid: c359ffb342a48224b893fce57766192d, type: 3}
   - {fileID: 8300000, guid: 060e3c332b8517444a382547b9394ca8, type: 3}
   - {fileID: 8300000, guid: aa8c67b3958769e41a39fa35bcc955d8, type: 3}
   - {fileID: 8300000, guid: d163b3d9708052745a1da98c74e9dedd, type: 3}

@@ -3,10 +3,10 @@
     <ui:Button display-tooltip-when-elided="true" name="NextButton" class="ButtonBack" style="position: absolute; left: auto; top: auto; right: 3%; bottom: 4%; background-image: resource(&apos;UiSprites/button_next_90_546&apos;);" />
     <ui:GroupBox name="TopbtGroup" style="height: 213px; flex-direction: row; justify-content: space-between;">
         <ui:Button display-tooltip-when-elided="true" name="BackButton" class="ButtonBack" style="top: 10%; background-image: resource(&apos;UiSprites/Group 8_73_232&apos;); -unity-background-scale-mode: scale-to-fit;" />
-        <ui:GroupBox style="width: 525px; flex-direction: row; justify-content: space-around; margin-right: 27px;">
-            <ui:Button display-tooltip-when-elided="true" name="AirButton" class="ButtonBack ButtonAir" style="top: auto; right: auto; position: relative; width: 129.08px; height: 161px; background-image: resource(&apos;UiSprites/part2/button_noise_mini_191_39709&apos;); -unity-background-scale-mode: scale-to-fit;" />
-            <ui:Button display-tooltip-when-elided="true" name="SNButton" class="ButtonBack" style="width: 129.08px; height: 161px; background-image: resource(&apos;UiSprites/part2/button_dB_mini_191_39692&apos;); display: flex; left: auto; top: auto; -unity-background-scale-mode: scale-to-fit;" />
-            <ui:Button display-tooltip-when-elided="true" name="DirectButton" class="ButtonBack" style="width: 129.08px; height: 161px; background-image: resource(&apos;UiSprites/part2/button_solution_mini_191_39715&apos;); left: auto; top: auto; -unity-background-scale-mode: scale-to-fit;" />
+        <ui:GroupBox picking-mode="Ignore" style="width: 525px; flex-direction: row; justify-content: space-around; margin-right: 27px;">
+            <ui:Button display-tooltip-when-elided="true" name="topmuButton0" class="ButtonTop" style="background-image: resource(&apos;UiSprites/part2/button_noise_mini_191_39709&apos;); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
+            <ui:Button display-tooltip-when-elided="true" name="topmuButton1" class="ButtonTop" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
+            <ui:Button display-tooltip-when-elided="true" name="topmuButton2" class="ButtonTop" style="background-image: resource(&apos;UiSprites/part2/button_solution_mini_191_39715&apos;); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
         </ui:GroupBox>
     </ui:GroupBox>
     <ui:Button display-tooltip-when-elided="true" name="HomeButton" class="ButtonBack" style="position: absolute; left: 3%; top: auto; right: auto; bottom: 4%; background-image: resource(&apos;UiSprites/Group 25_105_618&apos;);" />

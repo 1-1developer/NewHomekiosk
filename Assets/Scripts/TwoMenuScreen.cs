@@ -22,6 +22,7 @@ public class TwoMenuScreen : MenuScreen
 
     VisualElement m_touch;
     List<VisualElement> m_Gtouch = new List<VisualElement>();
+
     protected override void SetVisualElements()
     {
         base.SetVisualElements();

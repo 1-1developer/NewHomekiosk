@@ -31,18 +31,6 @@ public class ScreenPrevention : MenuScreen
 
     }
 
-    //private IEnumerator PlayVideoWhenReady()
-    //{
-    //    // 비디오 클립 준비 요청
-    //    videoManager.PrepareClip(index);
-
-    //    // 비디오 클립이 준비될 때까지 대기
-    //    yield return new WaitUntil(() => videoManager.isPreparedClip());
-
-    //    // 준비된 후 플레이
-    //    videoManager.PlayVideo();
-    //}
-
     protected override void RegisterButtonCallbacks()
     {
         m_BackButtonV?.RegisterCallback<ClickEvent>(ClickBackV);

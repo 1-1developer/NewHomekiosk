@@ -8,9 +8,9 @@ public class TopButtons : MenuScreen
 {
     const string NextButton = "NextButton";
     const string BackButton = "BackButton";
-    const string DirectButton = "DirectButton";
-    const string AirButton = "AirButton";
-    const string SNButton = "SNButton";
+    const string AirButton = "topmuButton0";
+    const string SNButton = "topmuButton1";
+    const string DirectButton = "topmuButton2";
 
     const string ListenStartScreen = "ListenStartScreen";
     const string ListenScreen = "ListenScreen";
@@ -20,9 +20,11 @@ public class TopButtons : MenuScreen
 
     Button m_NextButton;
     Button m_BackButton;
+
     Button m_DirectButton;
     Button m_AirButton;
     Button m_SNButton;
+
 
     Button m_ToStartButton;
     VisualElement m_ListenStartScreen;
@@ -32,6 +34,8 @@ public class TopButtons : MenuScreen
     List<VisualElement> m_Tscreens = new List<VisualElement>();
     List<VisualElement> m_Sscreens = new List<VisualElement>();
     List<VisualElement> m_Pscreens = new List<VisualElement>();
+
+    Button[] m_topbuttons = new Button[3];
 
     int tpageIndex;
     protected override void SetVisualElements()
@@ -59,6 +63,14 @@ public class TopButtons : MenuScreen
         m_ListenStartScreen = m_Root.Q(ListenStartScreen);
         m_ListenScreen = m_Root.Q(ListenScreen);
         m_ScreenListen = m_Root.Q(ScreenListen);
+
+        //for (int i = 0; i < m_topbuttons.Length; i++)
+        //{
+        //    m_topbuttons[i] = m_Root.Q<Button>("testbt" + $"{i}");
+        //}
+        m_topbuttons[0] = m_AirButton;
+        m_topbuttons[1] = m_SNButton;
+        m_topbuttons[2] = m_DirectButton;
     }
     protected override void RegisterButtonCallbacks()
     {
@@ -125,31 +137,30 @@ public class TopButtons : MenuScreen
     }
 
 
-    private void ClickSNButton(ClickEvent evt)
+    private void ClickSNButton(ClickEvent evt)//소음소리 2
     {
         AudioManager.PlayDefaultButtonSound();
-        m_MainMenuUIManager.ShowSoundNoiseScreen();
+        m_MainMenuUIManager.ShowSoundNoiseScreen(); setBtEnable(1);
         m_NextButton.style.display = DisplayStyle.Flex;
         UpdatePageNavigation(m_MainMenuUIManager.menuindex, m_MainMenuUIManager.currentPageIndex);
         ShowVisualElement(m_ListenScreen, false);
         ShowVisualElement(m_ListenStartScreen, true);
         AudioManager.StopSound();
     }
-    private void ClickDirectButton(ClickEvent evt)
+    private void ClickDirectButton(ClickEvent evt)//예방 3
     {
         AudioManager.PlayDefaultButtonSound();
-        m_MainMenuUIManager.ShowPreventionNoise();
+        m_MainMenuUIManager.ShowPreventionNoise(); setBtEnable(2);
         m_NextButton.style.display = DisplayStyle.Flex;
         UpdatePageNavigation(m_MainMenuUIManager.menuindex, m_MainMenuUIManager.currentPageIndex);
         ShowVisualElement(m_ListenScreen, false);
         ShowVisualElement(m_ListenStartScreen, true);
         AudioManager.StopSound();
-
     }
-    private void ClickAirButton(ClickEvent evt)
+    private void ClickAirButton(ClickEvent evt)//유형별 1
     {
         AudioManager.PlayDefaultButtonSound();
-        m_MainMenuUIManager.ShowTypeofNoiseScreen();
+        m_MainMenuUIManager.ShowTypeofNoiseScreen(); setBtEnable(0);
         m_NextButton.style.display = DisplayStyle.Flex;
         UpdatePageNavigation(m_MainMenuUIManager.menuindex, m_MainMenuUIManager.currentPageIndex);
         ShowVisualElement(m_ListenScreen, false);
@@ -169,6 +180,7 @@ public class TopButtons : MenuScreen
         ShowVisualElement(m_ListenScreen, false);
         ShowVisualElement(m_ListenStartScreen, true);
         m_MainMenuUIManager.HideTopbar();
+        setBtall();
         AudioManager.StopSound();
     }
 
@@ -219,6 +231,30 @@ public class TopButtons : MenuScreen
             {
                 ShowVisualElement(m, false);
             }
+        }
+    }
+
+    public void setBtEnable(int i)
+    {
+        Button b = m_topbuttons[i];
+        foreach (Button bb in m_topbuttons)
+        {
+            if (b==bb)
+            {
+                bb.SetEnabled(false);
+                Debug.Log($"{b.name} fade");
+            }
+            else
+            {
+                bb.SetEnabled(true);
+            }
+        }
+    }
+    public void setBtall()
+    {
+        for (int i = 0; i < m_topbuttons.Length; i++)
+        {
+            m_topbuttons[i]?.SetEnabled(true);
         }
     }
 }

@@ -73,26 +73,31 @@ public class UImanager : MonoBehaviour
     public void ShowtwoScreen()
     {
         ShowModalScreen(m_TwoModalScreen);
+        setTop();
     }
     public void ShowSoundNoiseScreen()
     {
         menuindex = 1;
+        m_TopButtons.setBtEnable(1);
         ShowModalScreen(m_ScreenSoundNoise);
     }
     public void ShowTypeofNoiseScreen()
     {
         menuindex = 0;
+        m_TopButtons.setBtEnable(0);
         ShowModalScreen(m_ScreenTypeofNoise);
     }
     public void ShowPreventionNoise()
     {
         menuindex = 2;
+        m_TopButtons.setBtEnable(2);
         ShowModalScreen(m_ScreenPreventionNoise);
     }
     public void ShowListenScreen()
     {
         pre_menuindex = menuindex;
         menuindex = 3;
+        setTop();
         ShowModalScreen(m_ScreenListen);
     }
     public void ShowTopbar()
@@ -103,4 +108,9 @@ public class UImanager : MonoBehaviour
     {
         m_TopButtons.HideScreen();
     }
+    public void setTop()
+    {
+        m_TopButtons.setBtall();
+    }
+
 }

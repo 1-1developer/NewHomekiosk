@@ -30,6 +30,7 @@ public class InitTimer : MonoBehaviour
         if(isStart && timer > MaxTime)
         {
             uImanager.ShowHomeScreen();
+            uImanager.HideTopbar();
             videoManager.StopVideo();
             AudioManager.StopSound();
             isStart = false;

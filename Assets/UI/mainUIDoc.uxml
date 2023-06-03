@@ -3,10 +3,10 @@
     <ui:Template name="Start" src="project://database/Assets/UI/Start.uxml?fileID=9197481963319205126&amp;guid=81c1c49d90744ed46a5300e3590ca218&amp;type=3#Start" />
     <ui:Template name="Two" src="project://database/Assets/UI/Two.uxml?fileID=9197481963319205126&amp;guid=eb76e4c21ee4bb64fa2f3e022fac3f3a&amp;type=3#Two" />
     <ui:Template name="ScreenSoundNoise" src="project://database/Assets/UI/ScreenSoundNoise.uxml?fileID=9197481963319205126&amp;guid=8f8ecab00635f7e4e9121b38074aea0e&amp;type=3#ScreenSoundNoise" />
-    <ui:Template name="ScreenListen" src="project://database/Assets/UI/ScreenListen.uxml?fileID=9197481963319205126&amp;guid=33ccb83c41dfdac42a9c15bf1200fa27&amp;type=3#ScreenListen" />
     <ui:Template name="ScreenTypeofNoise" src="project://database/Assets/UI/ScreenTypeofNoise.uxml?fileID=9197481963319205126&amp;guid=25a68d14195d2a04a83ccd68796b75f8&amp;type=3#ScreenTypeofNoise" />
     <ui:Template name="ScreenPrevention" src="project://database/Assets/UI/ScreenPrevention.uxml?fileID=9197481963319205126&amp;guid=175e6069c2b3fdd4f826b00de354d177&amp;type=3#ScreenPrevention" />
     <ui:Template name="TopButtons" src="project://database/Assets/UI/TopButtons.uxml?fileID=9197481963319205126&amp;guid=9cd0ce389663e5942b1c4a66fb88ce3e&amp;type=3#TopButtons" />
+    <ui:Template name="ScreenListen" src="project://database/Assets/UI/ScreenListen.uxml?fileID=9197481963319205126&amp;guid=33ccb83c41dfdac42a9c15bf1200fa27&amp;type=3#ScreenListen" />
     <Style src="project://database/Assets/UI/StyleSheet.uss?fileID=7433441132597879392&amp;guid=e965fee8837801141970d0b785724df3&amp;type=3#StyleSheet" />
     <ui:VisualElement name="StartScreen" style="width: 100%; height: 100%; position: absolute; display: flex;">
         <ui:Instance template="Start_2" name="Start_2" style="position: absolute; width: 100%; height: 100%; display: none;" />
@@ -14,8 +14,8 @@
     </ui:VisualElement>
     <ui:Instance template="Two" name="TwoMenuScreen" style="position: absolute; width: 100%; height: 100%; display: none;" />
     <ui:Instance template="ScreenSoundNoise" name="ScreenSoundNoise" style="position: absolute; width: 100%; height: 100%; display: none;" />
-    <ui:Instance template="ScreenListen" name="ScreenListen" style="position: absolute; width: 100%; height: 100%; display: none;" />
     <ui:Instance template="ScreenTypeofNoise" name="ScreenTypeofNoise" style="position: absolute; width: 100%; height: 100%; display: none;" />
     <ui:Instance template="ScreenPrevention" name="ScreenPrevention" style="width: 100%; height: 100%; position: absolute; display: none;" />
+    <ui:Instance template="ScreenListen" name="ScreenListen" style="position: absolute; width: 100%; height: 100%; display: none;" />
     <ui:Instance template="TopButtons" name="TopButtons" picking-mode="Ignore" style="position: absolute; width: 100%; height: 100%; display: none;" />
 </ui:UXML>
