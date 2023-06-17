@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
         sfxInstance.transform.position = sfxPosition;
 
         AudioSource source = sfxInstance.AddComponent<AudioSource>();
-        source.volume = .5f;
+        source.volume = .3f;
         source.clip = clip;
         source.Play();
 

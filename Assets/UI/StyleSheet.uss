@@ -182,18 +182,15 @@
 }
 
 .arrow {
-    background-image: resource('UiSprites/part2/Group 115');
     width: 265px;
     height: 266px;
-    left: -30px;
-    top: -30px;
-    transition-duration: 0.7s;
+    transition-duration: 0.5s;
     transition-timing-function: ease-in-out-sine;
 }
 
 .arrow--up {
     translate: -12px -12px;
-    transition-duration: 0.7s;
+    transition-duration: 0.5s;
     transition-timing-function: ease-in-out-sine;
 }
 
@@ -222,4 +219,22 @@
 
 .ButtonTop:active {
     scale: 0.9 0.9;
+}
+
+.dBButton {
+    position: relative;
+    background-image: resource('UiSprites/Part3/Group 126');
+    width: 58.21px;
+    height: 58.21px;
+    top: auto;
+    left: auto;
+    background-color: rgba(0, 0, 0, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+.dBButton--playing {
+    background-image: resource('UiSprites/Part3/Group 119_322_25');
 }

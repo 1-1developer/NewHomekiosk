@@ -8,11 +8,10 @@ public class TopButtons : MenuScreen
 {
     const string NextButton = "NextButton";
     const string BackButton = "BackButton";
-    const string AirButton = "topmuButton0";
-    const string SNButton = "topmuButton1";
-    const string DirectButton = "topmuButton2";
+    const string learnButton = "topmuButton0";
+    const string noiseButton = "topmuButton1";
+    const string prevButton = "topmuButton2";
 
-    const string ListenStartScreen = "ListenStartScreen";
     const string ListenScreen = "ListenScreen";
     const string ScreenListen = "ScreenListen";
 
@@ -21,13 +20,13 @@ public class TopButtons : MenuScreen
     Button m_NextButton;
     Button m_BackButton;
 
-    Button m_DirectButton;
-    Button m_AirButton;
-    Button m_SNButton;
-
-
+    Button m_PrevButton;
+    Button m_NoiseButton;
+    Button m_LearnButton;
     Button m_ToStartButton;
-    VisualElement m_ListenStartScreen;
+
+    List<Button> m_dbGroup = new List<Button>();
+
     VisualElement m_ListenScreen;
     VisualElement m_ScreenListen;
 
@@ -44,33 +43,36 @@ public class TopButtons : MenuScreen
 
         m_BackButton = m_Root.Q<Button>(BackButton);
         m_NextButton = m_Root.Q<Button>(NextButton);
-        m_DirectButton = m_Root.Q<Button>(DirectButton);
-        m_AirButton = m_Root.Q<Button>(AirButton);
-        m_SNButton = m_Root.Q<Button>(SNButton);
+        m_PrevButton = m_Root.Q<Button>(prevButton);
+        m_NoiseButton = m_Root.Q<Button>(noiseButton);
+        m_LearnButton = m_Root.Q<Button>(learnButton);
 
         m_ToStartButton = m_Root.Q<Button>(ToStartButton);
 
+        //층간소음 체험하기
+        m_Tscreens.Add(m_Root.Q("DecibelScreen"));
         m_Tscreens.Add(m_Root.Q("NoiseScreen0"));
         m_Tscreens.Add(m_Root.Q("NoiseScreen1"));
 
-        m_Sscreens.Add(m_Root.Q("SNScreen"));
-        m_Sscreens.Add(m_Root.Q("DecibelScreen"));
+        //층간소음 알아보기
+        m_Sscreens.Add(m_Root.Q("iScreen0"));
+        m_Sscreens.Add(m_Root.Q("iScreen1"));
+        m_Sscreens.Add(m_Root.Q("iScreen2"));
 
-        m_Pscreens.Add(m_Root.Q("PreventionScreen0"));
-        m_Pscreens.Add(m_Root.Q("PreventionScreen1"));
-        m_Pscreens.Add(m_Root.Q("PreventionScreen2"));
+        //비디오
+        m_Pscreens.Add(m_Root.Q("PreventionScreen"));
 
-        m_ListenStartScreen = m_Root.Q(ListenStartScreen);
         m_ListenScreen = m_Root.Q(ListenScreen);
         m_ScreenListen = m_Root.Q(ScreenListen);
 
-        //for (int i = 0; i < m_topbuttons.Length; i++)
-        //{
-        //    m_topbuttons[i] = m_Root.Q<Button>("testbt" + $"{i}");
-        //}
-        m_topbuttons[0] = m_AirButton;
-        m_topbuttons[1] = m_SNButton;
-        m_topbuttons[2] = m_DirectButton;
+        m_topbuttons[0] = m_LearnButton;
+        m_topbuttons[1] = m_NoiseButton;
+        m_topbuttons[2] = m_PrevButton;
+
+        for (int i = 0; i < 7; i++)
+        {
+            m_dbGroup.Add(m_Root.Q<Button>($"dBButton{i}"));
+        }
     }
     protected override void RegisterButtonCallbacks()
     {
@@ -78,110 +80,75 @@ public class TopButtons : MenuScreen
 
         m_BackButton?.RegisterCallback<ClickEvent>(ClickBackButton);
         m_NextButton?.RegisterCallback<ClickEvent>(ClickNextButton);
-        m_DirectButton?.RegisterCallback<ClickEvent>(ClickDirectButton);
-        m_AirButton?.RegisterCallback<ClickEvent>(ClickAirButton);
-        m_SNButton?.RegisterCallback<ClickEvent>(ClickSNButton);
+        m_LearnButton?.RegisterCallback<ClickEvent>(ClicklearnButton);
+        m_NoiseButton?.RegisterCallback<ClickEvent>(ClickNoiseButton);
+        m_PrevButton?.RegisterCallback<ClickEvent>(ClickPrevButton);
     }
     private void ClickBackButton(ClickEvent evt)
     {
         AudioManager.PlayDefaultButtonSound();
         if (m_ScreenListen.style.display == DisplayStyle.Flex)
         {
-            if (m_ListenScreen.style.display == DisplayStyle.Flex)
-            {
-                AudioManager.StopSound();
-                ShowVisualElement(m_ListenScreen, false);
-                ShowVisualElement(m_ListenStartScreen, true);
-                return;
-            }
-            switch (m_MainMenuUIManager.pre_menuindex)
-            {
-                case 0:
-                    ShowPage(m_Tscreens[tpageIndex], m_Tscreens);
-                    setNextBt(tpageIndex, 1);
-                    m_MainMenuUIManager.ShowTypeofNoiseScreen();
-                    m_MainMenuUIManager.currentPageIndex = tpageIndex;
-                    break;
-                case 1:
-                    ShowPage(m_Sscreens[1], m_Sscreens);
-                    setNextBt(1, 1);
-                    m_MainMenuUIManager.ShowSoundNoiseScreen();
-                    m_MainMenuUIManager.currentPageIndex = 1;
-                    break;
-                case 2:
-                    ShowPage(m_Pscreens[2], m_Pscreens);
-                    setNextBt(2, 2);
-                    m_MainMenuUIManager.ShowPreventionNoise();
-                    m_MainMenuUIManager.currentPageIndex = 2;
-                    break;
-                default:
-                    break;
-            }
             AudioManager.StopSound();
-            ShowVisualElement(m_ListenScreen, false);
-            ShowVisualElement(m_ListenStartScreen, true);
+            ShowPage(m_Tscreens[tpageIndex], m_Tscreens);
+            setNextBt(tpageIndex, 2);
+            m_MainMenuUIManager.ShowTypeofNoiseScreen();
+            m_MainMenuUIManager.currentPageIndex = tpageIndex;
             return;
         }
         m_NextButton.style.display = DisplayStyle.Flex;
         m_MainMenuUIManager.currentPageIndex--;
         UpdatePageNavigation(m_MainMenuUIManager.menuindex, m_MainMenuUIManager.currentPageIndex);
-
-
         AudioManager.StopSound();
+        initDB();
     }
     private void ClickNextButton(ClickEvent evt)
     {
         AudioManager.PlayDefaultButtonSound();
         m_MainMenuUIManager.currentPageIndex++;
         UpdatePageNavigation(m_MainMenuUIManager.menuindex, m_MainMenuUIManager.currentPageIndex);
+        AudioManager.StopSound();
+        initDB();
     }
-
-
-    private void ClickSNButton(ClickEvent evt)//소음소리 2
+    private void ClicklearnButton(ClickEvent evt)//층간소음 배우기 1
     {
         AudioManager.PlayDefaultButtonSound();
-        m_MainMenuUIManager.ShowSoundNoiseScreen(); setBtEnable(1);
+        m_MainMenuUIManager.ShowSoundNoiseScreen(); setBtEnable(0);
         m_NextButton.style.display = DisplayStyle.Flex;
         UpdatePageNavigation(m_MainMenuUIManager.menuindex, m_MainMenuUIManager.currentPageIndex);
-        ShowVisualElement(m_ListenScreen, false);
-        ShowVisualElement(m_ListenStartScreen, true);
         AudioManager.StopSound();
     }
-    private void ClickDirectButton(ClickEvent evt)//예방 3
+
+    private void ClickNoiseButton(ClickEvent evt)//소음소리 체험 2
+    {
+        AudioManager.PlayDefaultButtonSound();
+        m_MainMenuUIManager.ShowTypeofNoiseScreen(); setBtEnable(1);
+        m_NextButton.style.display = DisplayStyle.Flex;
+        UpdatePageNavigation(m_MainMenuUIManager.menuindex, m_MainMenuUIManager.currentPageIndex);
+        AudioManager.StopSound();
+    }
+    private void ClickPrevButton(ClickEvent evt)//예방 3
     {
         AudioManager.PlayDefaultButtonSound();
         m_MainMenuUIManager.ShowPreventionNoise(); setBtEnable(2);
         m_NextButton.style.display = DisplayStyle.Flex;
         UpdatePageNavigation(m_MainMenuUIManager.menuindex, m_MainMenuUIManager.currentPageIndex);
-        ShowVisualElement(m_ListenScreen, false);
-        ShowVisualElement(m_ListenStartScreen, true);
-        AudioManager.StopSound();
-    }
-    private void ClickAirButton(ClickEvent evt)//유형별 1
-    {
-        AudioManager.PlayDefaultButtonSound();
-        m_MainMenuUIManager.ShowTypeofNoiseScreen(); setBtEnable(0);
-        m_NextButton.style.display = DisplayStyle.Flex;
-        UpdatePageNavigation(m_MainMenuUIManager.menuindex, m_MainMenuUIManager.currentPageIndex);
-        ShowVisualElement(m_ListenScreen, false);
-        ShowVisualElement(m_ListenStartScreen, true);
         AudioManager.StopSound();
     }
 
-    private void ClickToStartButton(ClickEvent evt)
+
+    private void ClickToStartButton(ClickEvent evt)//처음으로 버튼
     {
         AudioManager.PlayDefaultButtonSound();
         m_MainMenuUIManager.ShowHomeScreen();
         m_MainMenuUIManager.menuindex = -1;
-        m_NextButton.style.display = DisplayStyle.Flex;
-        UpdatePageNavigation(0, m_MainMenuUIManager.currentPageIndex);
-        UpdatePageNavigation(1, m_MainMenuUIManager.currentPageIndex);
-        UpdatePageNavigation(2, m_MainMenuUIManager.currentPageIndex);
-        ShowVisualElement(m_ListenScreen, false);
-        ShowVisualElement(m_ListenStartScreen, true);
+        UpdatePageNavigation(0, 0);
+        UpdatePageNavigation(1, 0);
+        UpdatePageNavigation(2, 0);
         m_MainMenuUIManager.HideTopbar();
         setBtall();
         AudioManager.StopSound();
+        initDB();
     }
 
     private void UpdatePageNavigation(int menuindex, int pageindex)
@@ -195,17 +162,17 @@ public class TopButtons : MenuScreen
         switch (menuindex)
         {
             case 0:
-                ShowPage( m_Tscreens[pageindex],m_Tscreens);
-                setNextBt(pageindex, 1);
-                tpageIndex = pageindex;
+                ShowPage(m_Sscreens[pageindex], m_Sscreens);
+                setNextBt(pageindex, 2);
                 break;
             case 1:
-                ShowPage(m_Sscreens[pageindex], m_Sscreens);
-                setNextBt(pageindex, 1);
+                ShowPage( m_Tscreens[pageindex],m_Tscreens);
+                setNextBt(pageindex, 2);
+                tpageIndex = pageindex;
                 break;
             case 2:
                 ShowPage(m_Pscreens[pageindex], m_Pscreens);
-                setNextBt(pageindex, 2);
+                setNextBt(pageindex, 0);
                 break;
             default:
                 break;
@@ -255,6 +222,13 @@ public class TopButtons : MenuScreen
         for (int i = 0; i < m_topbuttons.Length; i++)
         {
             m_topbuttons[i]?.SetEnabled(true);
+        }
+    }
+    void initDB()
+    {
+        for (int i = 0; i < m_dbGroup.Count; i++)
+        {
+            m_dbGroup[i].RemoveFromClassList("dBButton--playing");
         }
     }
 }

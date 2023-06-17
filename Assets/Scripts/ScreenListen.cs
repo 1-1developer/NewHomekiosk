@@ -6,9 +6,7 @@ using System;
 
 public class ScreenListen : MenuScreen
 {
-    const string ListenStartScreen = "ListenStartScreen";
     const string ListenScreen = "ListenScreen";
-    const string StartListenButton = "StartListenButton";
 
     const string PlayButton = "PlayButton";
     const string Playing = "playing";
@@ -18,7 +16,6 @@ public class ScreenListen : MenuScreen
     VisualElement m_Playing;
     VisualElement m_PlayingText;
     VisualElement m_PlayingText2;
-    VisualElement m_ListenStartScreen;
     VisualElement m_ListenScreen;
 
     bool isPlaying =true;
@@ -32,25 +29,14 @@ public class ScreenListen : MenuScreen
         m_PlayingText = m_Root.Q(PlayingText);
         m_PlayingText2 = m_Root.Q(PlayingText2);
 
-        m_ListenStartScreen = m_Root.Q(ListenStartScreen);
+ 
         m_ListenScreen = m_Root.Q(ListenScreen);
         m_PlayButton = m_Root.Q<Button>(PlayButton);
-        m_StartListenButton = m_Root.Q<Button>(StartListenButton);
     }
     protected override void RegisterButtonCallbacks()
     {
         m_PlayButton?.RegisterCallback<ClickEvent>(ClickPlayButton);
-        m_StartListenButton?.RegisterCallback<ClickEvent>(ClickStartListen);
-    }
-    private void ClickStartListen(ClickEvent evt)
-    {
-        AudioManager.PlayDefaultButtonSound();
-        ShowVisualElement(m_ListenScreen, true);
-        ShowVisualElement(m_ListenStartScreen, false);
-        m_PlayButton.AddToClassList("ButtonPlay--pause");
-        m_Playing.RemoveFromClassList("playing--pause");
-        AudioManager.PlaySound();
-        isPlaying = true;
+
     }
     private void ClickPlayButton(ClickEvent evt)
     {

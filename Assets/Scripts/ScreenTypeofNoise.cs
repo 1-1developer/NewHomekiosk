@@ -7,6 +7,8 @@ using System;
 public class ScreenTypeofNoise : MenuScreen
 {
     const string NoiseScreen = "NoiseScreen";
+    const string DBButton = "dBButton";
+
 
     const string NoiseButton = "noiseButton";
     const string fNoiseButton = "fnoiseButton";
@@ -17,22 +19,26 @@ public class ScreenTypeofNoise : MenuScreen
 
     [SerializeField]
     Texture2D[] m_texts;
+    Button[] m_dBButtons = new Button[8];
 
     Button m_NextButton;
-    VisualElement m_NoiseScreen;
-    VisualElement m_NoiseScreen2;
     VisualElement m_PlayingText2;
 
     Button[] m_NoiseButtons = new Button[4];
     Button[] m_fNoiseButtons = new Button[6];
 
+    bool dbplaying;
+
     protected override void SetVisualElements()
     {
         base.SetVisualElements();
 
-        m_NoiseScreen = m_Root.Q(NoiseScreen+"0");
-        m_NoiseScreen2 = m_Root.Q(NoiseScreen+"1");
         m_PlayingText2 = m_Root.Q(PlayingText2);
+
+        for (int i = 0; i < m_dBButtons.Length; i++)
+        {
+            m_dBButtons[i] = m_Root.Q<Button>(DBButton + $"{i}");
+        }
 
         for (int i = 0; i < m_NoiseButtons.Length; i++)
         {
@@ -57,6 +63,15 @@ public class ScreenTypeofNoise : MenuScreen
         m_fNoiseButtons[3]?.RegisterCallback<ClickEvent>(evt => playNoisesound(15));
         m_fNoiseButtons[4]?.RegisterCallback<ClickEvent>(evt => playNoisesound(16));
         m_fNoiseButtons[5]?.RegisterCallback<ClickEvent>(evt => playNoisesound(17));
+
+        m_dBButtons[0]?.RegisterCallback<ClickEvent>(evt => playNoisesoundDB(0));
+        m_dBButtons[1]?.RegisterCallback<ClickEvent>(evt => playNoisesoundDB(1));
+        m_dBButtons[2]?.RegisterCallback<ClickEvent>(evt => playNoisesoundDB(2));
+        m_dBButtons[3]?.RegisterCallback<ClickEvent>(evt => playNoisesoundDB(3));
+        m_dBButtons[4]?.RegisterCallback<ClickEvent>(evt => playNoisesoundDB(4));
+        m_dBButtons[5]?.RegisterCallback<ClickEvent>(evt => playNoisesoundDB(5));
+        m_dBButtons[6]?.RegisterCallback<ClickEvent>(evt => playNoisesoundDB(6));
+        m_dBButtons[7]?.RegisterCallback<ClickEvent>(evt => playNoisesoundDB(7));
     }
 
 
@@ -67,6 +82,40 @@ public class ScreenTypeofNoise : MenuScreen
         m_PlayingText2.style.backgroundImage = m_texts[index-8];
         AudioManager.PlayDefaultButtonSound();
         AudioManager.SetNoiseButtonSound(index);
+        AudioManager.PlaySound();
         m_MainMenuUIManager.ShowListenScreen();
+    }
+
+    private void playNoisesoundDB(int index)
+    {
+        if (m_dBButtons[index].ClassListContains("dBButton--playing"))
+        {
+            AudioManager.StopSound();
+            m_dBButtons[index].RemoveFromClassList("dBButton--playing");
+            dbplaying = false;
+            return;
+        }
+        dbplaying = true;
+        setDBbutton(m_dBButtons[index]);
+
+        //m_PlayingText2.style.backgroundImage = new StyleBackground(m_texts[index]);
+        AudioManager.PlayDefaultButtonSound();
+        AudioManager.SetNoiseButtonSound(index);
+        AudioManager.PlaySound();
+    }
+
+    void setDBbutton(Button playingdb)
+    {
+        foreach (Button bt in m_dBButtons)
+        {
+            if (bt == playingdb)
+            {
+                bt.AddToClassList("dBButton--playing");
+            }
+            else
+            {
+                bt.RemoveFromClassList("dBButton--playing");
+            }
+        }
     }
 }

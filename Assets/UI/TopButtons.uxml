@@ -1,13 +1,16 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/StyleSheet.uss?fileID=7433441132597879392&amp;guid=e965fee8837801141970d0b785724df3&amp;type=3#StyleSheet" />
-    <ui:Button display-tooltip-when-elided="true" name="NextButton" class="ButtonBack" style="position: absolute; left: auto; top: auto; right: 3%; bottom: 4%; background-image: resource(&apos;UiSprites/button_next_90_546&apos;);" />
-    <ui:GroupBox name="TopbtGroup" style="height: 213px; flex-direction: row; justify-content: space-between;">
-        <ui:Button display-tooltip-when-elided="true" name="BackButton" class="ButtonBack" style="top: 10%; background-image: resource(&apos;UiSprites/Group 8_73_232&apos;); -unity-background-scale-mode: scale-to-fit;" />
+    <ui:GroupBox name="TopbtGroup" style="height: 213px; flex-direction: row-reverse; justify-content: space-between;">
         <ui:GroupBox picking-mode="Ignore" style="width: 525px; flex-direction: row; justify-content: space-around; margin-right: 27px;">
-            <ui:Button display-tooltip-when-elided="true" name="topmuButton0" class="ButtonTop" style="background-image: resource(&apos;UiSprites/part2/button_noise_mini_191_39709&apos;); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
-            <ui:Button display-tooltip-when-elided="true" name="topmuButton1" class="ButtonTop" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
-            <ui:Button display-tooltip-when-elided="true" name="topmuButton2" class="ButtonTop" style="background-image: resource(&apos;UiSprites/part2/button_solution_mini_191_39715&apos;); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
+            <ui:Button display-tooltip-when-elided="true" name="topmuButton0" class="ButtonTop" style="background-image: resource(&apos;UiSprites/Part3/button_dB_mini_284_51&apos;); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
+            <ui:Button display-tooltip-when-elided="true" name="topmuButton1" class="ButtonTop" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-image: resource(&apos;UiSprites/Part3/button_noise_mini_284_60&apos;);" />
+            <ui:Button display-tooltip-when-elided="true" name="topmuButton2" class="ButtonTop" style="background-image: resource(&apos;UiSprites/Part3/button_solution_mini_284_66&apos;); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
         </ui:GroupBox>
     </ui:GroupBox>
-    <ui:Button display-tooltip-when-elided="true" name="HomeButton" class="ButtonBack" style="position: absolute; left: 3%; top: auto; right: auto; bottom: 4%; background-image: resource(&apos;UiSprites/Group 25_105_618&apos;);" />
+    <ui:VisualElement picking-mode="Ignore" style="height: 68%;" />
+    <ui:GroupBox name="buttonbtGroup" style="height: 213px; flex-direction: row; justify-content: center; align-items: center;">
+        <ui:Button display-tooltip-when-elided="true" name="BackButton" class="ButtonBack" style="top: auto; background-image: resource(&apos;UiSprites/Group 8_73_232&apos;); -unity-background-scale-mode: scale-to-fit; left: 2%; position: absolute;" />
+        <ui:Button display-tooltip-when-elided="true" name="HomeButton" class="ButtonBack" style="position: relative; left: auto; top: auto; right: auto; bottom: auto; background-image: resource(&apos;UiSprites/Group 25_105_618&apos;);" />
+        <ui:Button display-tooltip-when-elided="true" name="NextButton" class="ButtonBack" style="position: absolute; left: auto; top: auto; right: 2%; bottom: auto; background-image: resource(&apos;UiSprites/button_next_90_546&apos;); display: flex;" />
+    </ui:GroupBox>
 </ui:UXML>
