@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/UI/StyleSheet.uss?fileID=7433441132597879392&amp;guid=e965fee8837801141970d0b785724df3&amp;type=3#StyleSheet" />
     <ui:VisualElement name="DecibelScreen" class="Screenfade" style="display: flex; background-image: resource(&apos;UiSprites/Part3/소리와 소음-데시벨 (1)&apos;); -unity-background-scale-mode: scale-to-fit;">
         <ui:GroupBox name="cBbtGruop" style="height: 620px; width: 59.21px; position: absolute; top: 268px; left: 1502px; justify-content: space-between; align-items: center; flex-direction: column;">
-            <ui:Button display-tooltip-when-elided="true" name="dBButton7" class="dBButton" />
+            <ui:Button display-tooltip-when-elided="true" name="dBButton7" class="dBButton" style="display: flex;" />
             <ui:Button display-tooltip-when-elided="true" name="dBButton6" class="dBButton" />
             <ui:Button display-tooltip-when-elided="true" name="dBButton5" class="dBButton" />
             <ui:Button display-tooltip-when-elided="true" name="dBButton4" class="dBButton" />

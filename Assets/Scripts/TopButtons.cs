@@ -17,6 +17,11 @@ public class TopButtons : MenuScreen
 
     const string ToStartButton = "HomeButton";
 
+    const string PlayButton = "PlayButton";
+    const string Playing = "playing";
+    const string PlayingText = "playingText";
+    const string PlayingText2 = "playingText2";
+
     Button m_NextButton;
     Button m_BackButton;
 
@@ -27,8 +32,14 @@ public class TopButtons : MenuScreen
 
     List<Button> m_dbGroup = new List<Button>();
 
+    //í—¤ë“œí° ìŠ¤í¬ë¦°
     VisualElement m_ListenScreen;
     VisualElement m_ScreenListen;
+    VisualElement m_Playing;
+    VisualElement m_PlayingText;
+    VisualElement m_PlayingText2;
+    Button m_PlayButton;
+
 
     List<VisualElement> m_Tscreens = new List<VisualElement>();
     List<VisualElement> m_Sscreens = new List<VisualElement>();
@@ -49,27 +60,31 @@ public class TopButtons : MenuScreen
 
         m_ToStartButton = m_Root.Q<Button>(ToStartButton);
 
-        //Ãş°£¼ÒÀ½ Ã¼ÇèÇÏ±â
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ï¿½Ï±ï¿½
         m_Tscreens.Add(m_Root.Q("DecibelScreen"));
         m_Tscreens.Add(m_Root.Q("NoiseScreen0"));
         m_Tscreens.Add(m_Root.Q("NoiseScreen1"));
 
-        //Ãş°£¼ÒÀ½ ¾Ë¾Æº¸±â
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾Æºï¿½ï¿½ï¿½
         m_Sscreens.Add(m_Root.Q("iScreen0"));
         m_Sscreens.Add(m_Root.Q("iScreen1"));
         m_Sscreens.Add(m_Root.Q("iScreen2"));
 
-        //ºñµğ¿À
+        //ï¿½ï¿½ï¿½ï¿½
         m_Pscreens.Add(m_Root.Q("PreventionScreen"));
 
         m_ListenScreen = m_Root.Q(ListenScreen);
         m_ScreenListen = m_Root.Q(ScreenListen);
+        m_Playing = m_Root.Q(Playing);
+        m_PlayingText = m_Root.Q(PlayingText);
+        m_PlayingText2 = m_Root.Q(PlayingText2);
+        m_PlayButton = m_Root.Q<Button>(PlayButton);
 
         m_topbuttons[0] = m_LearnButton;
         m_topbuttons[1] = m_NoiseButton;
         m_topbuttons[2] = m_PrevButton;
 
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 8; i++)
         {
             m_dbGroup.Add(m_Root.Q<Button>($"dBButton{i}"));
         }
@@ -90,6 +105,7 @@ public class TopButtons : MenuScreen
         if (m_ScreenListen.style.display == DisplayStyle.Flex)
         {
             AudioManager.StopSound();
+            initplay();
             ShowPage(m_Tscreens[tpageIndex], m_Tscreens);
             setNextBt(tpageIndex, 2);
             m_MainMenuUIManager.ShowTypeofNoiseScreen();
@@ -110,7 +126,7 @@ public class TopButtons : MenuScreen
         AudioManager.StopSound();
         initDB();
     }
-    private void ClicklearnButton(ClickEvent evt)//Ãş°£¼ÒÀ½ ¹è¿ì±â 1
+    private void ClicklearnButton(ClickEvent evt)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 1
     {
         AudioManager.PlayDefaultButtonSound();
         m_MainMenuUIManager.ShowSoundNoiseScreen(); setBtEnable(0);
@@ -119,7 +135,7 @@ public class TopButtons : MenuScreen
         AudioManager.StopSound();
     }
 
-    private void ClickNoiseButton(ClickEvent evt)//¼ÒÀ½¼Ò¸® Ã¼Çè 2
+    private void ClickNoiseButton(ClickEvent evt)//ï¿½ï¿½ï¿½ï¿½ï¿½Ò¸ï¿½ Ã¼ï¿½ï¿½ 2
     {
         AudioManager.PlayDefaultButtonSound();
         m_MainMenuUIManager.ShowTypeofNoiseScreen(); setBtEnable(1);
@@ -127,7 +143,7 @@ public class TopButtons : MenuScreen
         UpdatePageNavigation(m_MainMenuUIManager.menuindex, m_MainMenuUIManager.currentPageIndex);
         AudioManager.StopSound();
     }
-    private void ClickPrevButton(ClickEvent evt)//¿¹¹æ 3
+    private void ClickPrevButton(ClickEvent evt)//ï¿½ï¿½ï¿½ï¿½ 3
     {
         AudioManager.PlayDefaultButtonSound();
         m_MainMenuUIManager.ShowPreventionNoise(); setBtEnable(2);
@@ -137,10 +153,11 @@ public class TopButtons : MenuScreen
     }
 
 
-    private void ClickToStartButton(ClickEvent evt)//Ã³À½À¸·Î ¹öÆ°
+    private void ClickToStartButton(ClickEvent evt)//Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
     {
         AudioManager.PlayDefaultButtonSound();
-        m_MainMenuUIManager.ShowHomeScreen();
+        m_MainMenuUIManager.ShowtwoScreen();
+        initplay();
         m_MainMenuUIManager.menuindex = -1;
         UpdatePageNavigation(0, 0);
         UpdatePageNavigation(1, 0);
@@ -230,5 +247,13 @@ public class TopButtons : MenuScreen
         {
             m_dbGroup[i].RemoveFromClassList("dBButton--playing");
         }
+    }
+
+    void initplay()
+    {
+        m_PlayButton.AddToClassList("ButtonPlay--pause");
+        m_Playing.RemoveFromClassList("playing--pause");
+        m_PlayingText.RemoveFromClassList("playingText--fade");
+        m_PlayingText2.RemoveFromClassList("playingText--fade");
     }
 }

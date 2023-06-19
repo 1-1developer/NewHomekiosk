@@ -29,7 +29,6 @@ public class ScreenListen : MenuScreen
         m_PlayingText = m_Root.Q(PlayingText);
         m_PlayingText2 = m_Root.Q(PlayingText2);
 
- 
         m_ListenScreen = m_Root.Q(ListenScreen);
         m_PlayButton = m_Root.Q<Button>(PlayButton);
     }
